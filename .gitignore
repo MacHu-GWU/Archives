@@ -1,7 +1,14 @@
+# repository ignore file
+*.p
+*.db
+*.db-journal
+*.json
+*.log
+*.pyc
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
-*.pyc
 
 # Folder config file
 Desktop.ini
