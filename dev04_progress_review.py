@@ -14,4 +14,6 @@ from dev03_database import engine, archive
 
 # 2015-02-24 12:06:00, 12885 records
 # 2015-02-24 12:19:00, 772959 records
-engine.prt_howmany(archive)
+# 2015-03-09 11:28:00, 14,432,043 records
+# 2015-04-07 12:25:00, 55,010,660 records
+print(engine.execute("SELECT count(*) FROM (SELECT lastname FROM archive)").fetchall())

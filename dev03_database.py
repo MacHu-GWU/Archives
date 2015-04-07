@@ -35,7 +35,7 @@ saving_interval = 10 # dump to disk every how many http request
 cycler = itertools.cycle(range(saving_interval))
     
 def json_filter(winfile):
-    if winfile.ext == ".json":
+    if winfile.basename.endswith(".json"):
         return True
     else:
         return False
@@ -70,10 +70,12 @@ def push2db():
         os.remove(winfile.abspath)
         if next(cycler) == (saving_interval - 1):
             engine.commit()
-            
     engine.commit()
 
 if __name__ == "__main__":
     while 1:
-        push2db()
+        try:
+            push2db()
+        except:
+            pass
         time.sleep(60) # process every 600 seconds
